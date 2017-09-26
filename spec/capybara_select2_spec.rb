@@ -5,10 +5,10 @@ describe CapybaraSelect2 do
     expect(CapybaraSelect2::VERSION).not_to be nil
   end
 
-  context 'with select2 version 3.x.x' do
+  shared_context 'with select2 version 3.x.x' do |options = {}|
     before { visit 'select2-v3.x.x/index.html' }
 
-    context 'selecting a value from a single select box' do
+    context 'selecting a value from a single select box', driver: options[:driver] do
 
       it 'identified by XPath' do
         select2 'XBox', xpath: '//div[@id="s2id_console"]'
@@ -26,4 +26,7 @@ describe CapybaraSelect2 do
       end
     end
   end
+
+  include_context 'with select2 version 3.x.x'
+  include_context 'with select2 version 3.x.x', driver: :webkit
 end
