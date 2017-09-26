@@ -7,6 +7,10 @@
   </head>
 
   <body>
+    <!-- Single select box -->
+    <br/>
+    <hr/>
+
     <label for="console">Select game console you would want to play</label>
     <select id="console" name="console">
       <option></option>
@@ -18,5 +22,22 @@
     <script>
       $("#console").select2({ width: 'resolve' })
     </script>
+
+    <!-- Multiple select box -->
+    <br/>
+    <hr/>
+
+    <label for="todo">Things to do</label>
+    <select id="todo" name="todo" multiple="multiple">
+      <option></option>
+      <option value="buy milk">Buy Milk</option>
+      <option value="see malaysia">See Malaysia</option>
+      <option value="go to gym">Go to gym</option>
+    </select>
+
+    <script>
+      $("#todo").select2({ width: 'resolve' })
+    </script>
+
   </body>
 </html>

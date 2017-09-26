@@ -28,6 +28,26 @@ describe CapybaraSelect2 do
         end
 
       end
+
+      context 'selecting a value from a multi select box' do
+
+        it 'identified by XPath' do
+          select2 'Buy Milk', xpath: '//div[@id="s2id_todo"]'
+          expect(page).to have_css '.select2-search-choice', text: 'Buy Milk'
+        end
+
+        it 'identified by CSS selector' do
+          select2 'Buy Milk', css: '#s2id_todo'
+          expect(page).to have_css '.select2-search-choice', text: 'Buy Milk'
+        end
+
+        it 'identified by label' do
+          select2 'Buy Milk', from: 'Things to do'
+          expect(page).to have_css '.select2-search-choice', text: 'Buy Milk'
+        end
+
+      end
+
     end
   end
 
