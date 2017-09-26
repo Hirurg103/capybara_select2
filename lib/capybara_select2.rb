@@ -1,5 +1,6 @@
 require "capybara_select2/version"
+require 'capybara_select2/helpers'
 
 module CapybaraSelect2
-  # Your code goes here...
+  include Helpers
 end

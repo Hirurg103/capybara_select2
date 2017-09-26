@@ -1,0 +1,22 @@
+<!doctype html>
+<html>
+  <head>
+    <script src="https://raw.githubusercontent.com/jquery/jquery/1.12.4/dist/jquery.min.js"></script>
+    <script src="https://raw.githubusercontent.com/select2/select2/3.5.4/select2.min.js"></script>
+    <link href="https://rawgit.com/select2/select2/3.5.4/select2.css" rel="stylesheet"/>
+  </head>
+
+  <body>
+    <label for="console">Select game console you would want to play</label>
+    <select id="console" name="console">
+      <option></option>
+      <option value="xbox">XBox</option>
+      <option value="playstation">PlayStation 3</option>
+      <option value="wii">Wii</option>
+    </select>
+
+    <script>
+      $("#console").select2({ width: 'resolve' })
+    </script>
+  </body>
+</html>
