@@ -29,3 +29,8 @@ RSpec.configure do |config|
     Capybara.use_default_driver
   end
 end
+
+Capybara::Webkit.configure do |config|
+  config.allow_url("rawgit.com")
+  config.allow_url("raw.githubusercontent.com")
+end
