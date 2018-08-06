@@ -29,9 +29,9 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "bundler", "~> 1.11"
   spec.add_development_dependency "rake", "~> 10.0"
   spec.add_development_dependency "rspec", "~> 3.0"
-  spec.add_development_dependency "capybara", "~> 2.15.1"
-  spec.add_development_dependency "selenium-webdriver", "~> 2.53.4"
-  spec.add_development_dependency "capybara-screenshot" , "~> 1.0.17"
-  spec.add_development_dependency "capybara-webkit", "~> 1.1.0"
+  spec.add_development_dependency "capybara", "~> 3.5.0"
+  spec.add_development_dependency "selenium-webdriver", "~> 3.14.0"
+  spec.add_development_dependency "capybara-screenshot" , "~> 1.0.21"
+  spec.add_development_dependency "capybara-webkit", "~> 1.15.0"
   spec.add_development_dependency "pry", "~> 0.11.0"
 end
