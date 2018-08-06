@@ -15,12 +15,19 @@ module CapybaraSelect2
       container.click
 
       if multiple?(container)
-        container.find('.select2-input').set value
+        container.find('input').set value
       else
-        find(".select2-drop-active .select2-input").set value
+        find(
+          ".select2-dropdown-open input.select2-focused," +      # v2
+          ".select2-drop-active input.select2-input"             # v3
+        ).set value
       end
 
-      find('.select2-drop-active .select2-result', text: value).click
+      find(
+        ".select2-container-active .select2-highlighted," +      # v2
+        ".select2-drop-active .select2-highlighted",             # v3
+        text: value
+      ).click
     end
 
     private

@@ -1,14 +1,13 @@
 require 'spec_helper'
 
 describe CapybaraSelect2 do
-  it 'has a version number' do
-    expect(CapybaraSelect2::VERSION).not_to be nil
-  end
 
-  shared_context 'with select2 version 3.x.x' do |options = {}|
-    before { visit 'select2-v3.x.x/index.html' }
+  shared_context 'with select2 version 3' do |options = {}|
 
-    context "with a JS driver: #{ options[:driver] || Capybara.default_driver }", driver: options[:driver] do
+    before { visit 'select2-v3/index.html' }
+
+    driver = options[:driver]
+    context "with a JS driver: #{driver}", driver: driver do
 
       context 'selecting a value from a single select box' do
 
@@ -51,6 +50,7 @@ describe CapybaraSelect2 do
     end
   end
 
-  include_context 'with select2 version 3.x.x'
-  include_context 'with select2 version 3.x.x', driver: :webkit
+  include_context 'with select2 version 3', driver: :selenium
+  include_context 'with select2 version 3', driver: :webkit
+
 end

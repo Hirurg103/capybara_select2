@@ -1,0 +1,47 @@
+<!doctype html>
+<html>
+  <head>
+    <script src="https://rawgit.com/jquery/jquery/1.12.4/dist/jquery.min.js"></script>
+    <script src="https://rawgit.com/select2/select2/2.1.0/select2.min.js"></script>
+    <link href="https://rawgit.com/select2/select2/2.1.0/select2.css" rel="stylesheet"/>
+  </head>
+
+  <body>
+    <!-- Single select box -->
+    <br/>
+    <hr/>
+
+    <div id="single">
+      <label for="console">Select game console you would want to play</label>
+      <select id="console" name="console">
+        <option></option>
+        <option value="xbox">XBox</option>
+        <option value="playstation">PlayStation 3</option>
+        <option value="wii">Wii</option>
+      </select>
+
+      <script>
+        $("#console").select2({ width: 'resolve' })
+      </script>
+    </div>
+
+    <!-- Multiple select box -->
+    <br/>
+    <hr/>
+
+    <div id="multiple">
+      <label for="todo">Things to do</label>
+      <select id="todo" name="todo" multiple="multiple">
+        <option></option>
+        <option value="buy milk">Buy Milk</option>
+        <option value="see malaysia">See Malaysia</option>
+        <option value="go to gym">Go to gym</option>
+      </select>
+
+      <script>
+        $("#todo").select2({ width: 'resolve' })
+      </script>
+    </div>
+
+  </body>
+</html>
