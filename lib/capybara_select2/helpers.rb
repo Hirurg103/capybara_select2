@@ -15,13 +15,16 @@ module CapybaraSelect2
       container.click
 
       find(
-        ".select2-dropdown-open input.select2-focused," +      # v2
-        ".select2-drop-active input.select2-input"             # v3
+        ".select2-dropdown-open input.select2-focused,"  +         # v2
+        ".select2-drop-active input.select2-input,"      +         # v3
+        ".select2-container--focus input.select2-search__field," + # v4 single
+        ".select2-container--open input.select2-search__field"     # v4 multi
       ).set value
 
       find(
-        ".select2-container-active .select2-highlighted," +      # v2
-        ".select2-drop-active .select2-highlighted",             # v3
+        ".select2-container-active .select2-highlighted," +        # v2
+        ".select2-drop-active .select2-highlighted,"      +        # v3
+        ".select2-results .select2-results__option--highlighted",  # v4
         text: value
       ).click
     end
