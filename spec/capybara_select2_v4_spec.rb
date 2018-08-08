@@ -1,7 +1,5 @@
 require 'spec_helper'
 
-require 'spec_helper'
-
 describe CapybaraSelect2 do
 
   shared_context 'with select2 version 4' do |options = {}|
