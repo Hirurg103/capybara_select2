@@ -33,7 +33,7 @@ select2 'Buy Milk', css: '#todo'
 select2 'Buy Milk', xpath: '//div[@id="todo"]'
 ```
 
-### Or Identified by label
+#### Or Identified by label
 
 ```ruby
 select2 'Buy Milk', from: 'Things to do'
