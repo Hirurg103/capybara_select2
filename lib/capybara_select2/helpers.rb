@@ -6,15 +6,15 @@ module CapybaraSelect2
         ".select2-selection"                                       # v4
 
       search_input = "" +
-        ".select2-dropdown-open input.select2-focused,"  +         # v2
-        ".select2-drop-active input.select2-input,"      +         # v3
+        ".select2-dropdown-open input.select2-focused," +          # v2
+        ".select2-drop-active input.select2-input," +              # v3
         ".select2-container--focus input.select2-search__field," + # v4 single
         ".select2-container--open input.select2-search__field"     # v4 multi
 
       option = "" +
-        ".select2-container-active .select2-highlighted," +        # v2
-        ".select2-drop-active .select2-highlighted,"      +        # v3
-        ".select2-results .select2-results__option--highlighted"   # v4
+        ".select2-container-active .select2-result," +             # v2
+        ".select2-drop-active .select2-result," +                  # v3
+        ".select2-results .select2-results__option"                # v4
 
 
       container = if options[:xpath]
@@ -30,7 +30,9 @@ module CapybaraSelect2
 
       container.find(open_select).click
 
-      find(search_input).set value
+      if options[:search]
+        find(search_input).set value
+      end
 
       find(option, text: value).click
     end
