@@ -12,7 +12,11 @@ module CapybaraSelect2
         find(:css, "#s2id_#{select_id}")
       end
 
-      container.click
+      container
+        .find(
+          ".select2-choice, .select2-choices, " + # v2 & v3
+          ".select2-selection"                    # v4
+        ).click
 
       find(
         ".select2-dropdown-open input.select2-focused,"  +         # v2

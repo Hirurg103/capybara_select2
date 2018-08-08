@@ -14,7 +14,7 @@ describe CapybaraSelect2 do
       context 'selecting a value from a single select box' do
 
         it 'identified by XPath' do
-          select2 'XBox', xpath: "//div[@id='single']/span[contains(@class, 'select2-container')]"
+          select2 'XBox', xpath: "//div[@id='single']"
           expect(page).to have_css '.select2-container span', text: 'XBox'
         end
 
@@ -28,7 +28,7 @@ describe CapybaraSelect2 do
       context 'selecting a value from a multi select box' do
 
         it 'identified by XPath' do
-          select2 'Buy Milk', xpath: "//div[@id='multiple']/span[contains(@class, 'select2-container')]"
+          select2 'Buy Milk', xpath: "//div[@id='multiple']"
           expect(page).to have_css '.select2-selection__choice', text: 'Buy Milk'
         end
 
