@@ -38,24 +38,24 @@ World CapybaraSelect2
 
 ## Usage
 
-### Select from a container containing the select2 control
+### Select from a node containing select2 control
 
-#### Identified by CSS selector
+* Identified by CSS selector
 ```ruby
 select2 'Buy Milk', css: '#todo'
 ```
 
-#### Identified by XPath selector
+* Identified by XPath selector
 ```ruby
 select2 'Buy Milk', xpath: '//div[@id="todo"]'
 ```
 
-#### Or Identified by label
+### Select from select2 control identified by label
 ```ruby
 select2 'Buy Milk', from: 'Things to do'
 ```
 
-#### If you want to search for an option (via Ajax for example)
+If you want to search for an option (via Ajax for example)
 ```ruby
 select2 'Buy Milk', from: 'Things to do', search: true
 ```
