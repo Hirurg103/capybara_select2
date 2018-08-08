@@ -12,12 +12,12 @@ describe CapybaraSelect2 do
       context 'selecting a value from a single select box' do
 
         it 'identified by XPath' do
-          select2 'XBox', xpath: '//div[@id="s2id_console"]'
+          select2 'XBox', xpath: '//div[@id="single"]'
           expect(page).to have_css '.select2-chosen', text: 'XBox'
         end
 
         it 'identified by CSS selector' do
-          select2 'XBox', css: '#s2id_console'
+          select2 'XBox', css: '#single'
           expect(page).to have_css '.select2-chosen', text: 'XBox'
         end
 
@@ -31,12 +31,12 @@ describe CapybaraSelect2 do
       context 'selecting a value from a multi select box' do
 
         it 'identified by XPath' do
-          select2 'Buy Milk', xpath: '//div[@id="s2id_todo"]'
+          select2 'Buy Milk', xpath: '//div[@id="multiple"]'
           expect(page).to have_css '.select2-search-choice', text: 'Buy Milk'
         end
 
         it 'identified by CSS selector' do
-          select2 'Buy Milk', css: '#s2id_todo'
+          select2 'Buy Milk', css: '#multiple'
           expect(page).to have_css '.select2-search-choice', text: 'Buy Milk'
         end
 
@@ -46,7 +46,7 @@ describe CapybaraSelect2 do
         end
 
         it 'should select with search for an option' do
-          select2 'Buy Milk', css: '#s2id_todo', search: true
+          select2 'Buy Milk', css: '#multiple', search: true
 
           expect(page).to have_css '.select2-search-choice', text: 'Buy Milk'
         end

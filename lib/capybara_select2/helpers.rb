@@ -22,10 +22,9 @@ module CapybaraSelect2
       elsif options[:css]
         find(:css, options[:css])
       else
-        select_name = options[:from]
-        select_id = find("label:not(.select2-offscreen)", text: select_name)[:for]
-
-        find(:css, "#s2id_#{select_id}")
+        find("label:not(.select2-offscreen)", text: options[:from])
+          .find(:xpath, '..')
+          .find('.select2-container')
       end
 
       container.find(open_select).click

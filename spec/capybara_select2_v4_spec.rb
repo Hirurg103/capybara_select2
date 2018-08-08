@@ -21,6 +21,11 @@ describe CapybaraSelect2 do
           expect(page).to have_css '.select2-container span', text: 'XBox'
         end
 
+        it 'identified by label' do
+          select2 'XBox', from: 'Select game console'
+          expect(page).to have_css '.select2-container span', text: 'XBox'
+        end
+
       end
 
       context 'selecting a value from a multi select box' do
@@ -32,6 +37,11 @@ describe CapybaraSelect2 do
 
         it 'identified by CSS selector' do
           select2 'Buy Milk', css: '#multiple .select2-container'
+          expect(page).to have_css '.select2-selection__choice', text: 'Buy Milk'
+        end
+
+        it 'identified by label' do
+          select2 'Buy Milk', from: 'Things to do'
           expect(page).to have_css '.select2-selection__choice', text: 'Buy Milk'
         end
 
