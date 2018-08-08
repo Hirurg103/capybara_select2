@@ -10,6 +10,14 @@ group :test do
 end
 ```
 
+And then execute:
+
+    $ bundle
+
+Or install it yourself as:
+
+    $ gem install capybara_select2
+
 ### Rspec
 
 In your spec_helper.rb
@@ -27,15 +35,6 @@ In your env.rb
 ```
 World CapybaraSelect2
 ```
-
-
-And then execute:
-
-    $ bundle
-
-Or install it yourself as:
-
-    $ gem install capybara_select2
 
 ## Usage
 
