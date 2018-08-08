@@ -10,6 +10,25 @@ group :test do
 end
 ```
 
+### Rspec
+
+In your spec_helper.rb
+
+```
+RSpec.configure do |config|
+  config.include CapybaraSelect2
+end
+```
+
+### Cucumber
+
+In your env.rb
+
+```
+World CapybaraSelect2
+```
+
+
 And then execute:
 
     $ bundle
