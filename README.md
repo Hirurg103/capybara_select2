@@ -6,7 +6,7 @@ Add this line to your application's Gemfile:
 
 ```ruby
 group :test do
-  gem 'capybara_select2'
+  gem 'capybara-select-2'
 end
 ```
 

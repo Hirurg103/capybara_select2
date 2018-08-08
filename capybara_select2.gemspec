@@ -4,12 +4,12 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require 'capybara_select2/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = "capybara_select2"
+  spec.name          = "capybara-select-2"
   spec.version       = CapybaraSelect2::VERSION
-  spec.authors       = ["Dzmitry"]
-  spec.email         = ["dzmitry.kovalenok@thehamon.com"]
+  spec.authors       = ["Dzmitry Kavalionak"]
+  spec.email         = ["dzm.kov@gmail.com"]
 
-  spec.summary       = %q{Capybara helpers for https://select2.org select box}
+  spec.summary       = %q{Capybara helpers for https://select2.org select box (supports Select2 versions 2/3/4)}
   spec.homepage      = "https://github.com/Hirurg103/capybara_select2"
   spec.license       = "MIT"
 
