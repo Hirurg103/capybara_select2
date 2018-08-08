@@ -16,7 +16,7 @@ And then execute:
 
 Or install it yourself as:
 
-    $ gem install capybara_select2
+    $ gem install capybara-select-2
 
 ### Rspec
 
