@@ -7,10 +7,10 @@
   </head>
 
   <body>
-    <!-- Single select box -->
     <br/>
     <hr/>
 
+    <h2>Single select box</h2>
     <div id="single">
       <label for="console">Select game console you would want to play</label>
       <select id="console" name="console">
@@ -25,9 +25,10 @@
       </script>
     </div>
 
-    <!-- Multiple select box -->
     <br/>
     <hr/>
+
+    <h2>Multiple select box</h2>
 
     <div id="multiple">
       <label for="todo">Things to do</label>
@@ -40,6 +41,19 @@
 
       <script>
         $("#todo").select2({ width: 'resolve' })
+      </script>
+    </div>
+
+    <br/>
+    <hr/>
+
+    <h2>Tagging</h2>
+
+    <div id="tagging">
+      <div id="tags"></div>
+
+      <script>
+        $("#tags").select2({ tags: [] })
       </script>
     </div>
 

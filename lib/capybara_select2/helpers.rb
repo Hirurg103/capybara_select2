@@ -29,7 +29,7 @@ module CapybaraSelect2
 
       container.find(open_select).click
 
-      if options[:search]
+      if options[:search] || options[:tag]
         find(search_input).set value
       end
 

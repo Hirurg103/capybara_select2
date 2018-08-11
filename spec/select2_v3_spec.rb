@@ -53,6 +53,14 @@ describe CapybaraSelect2 do
 
       end
 
+      context 'creating a dynamic option' do
+        it 'should add an option from search box' do
+          select2 'Millenials', css: '#tagging', tag: true
+
+          expect(page).to have_css '.select2-search-choice', text: 'Millenials'
+        end
+      end
+
     end
   end
 
