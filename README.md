@@ -62,7 +62,7 @@ select2 'Buy Milk', from: 'Things to do', search: true
 
 ### Dynamically create an option from search input 
 ```ruby
-select2 'Millenials', from: 'Generations', tag: true
+select2 'Millennials', from: 'Generations', tag: true
 ```
 
 ## Contributing
