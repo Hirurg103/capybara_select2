@@ -45,6 +45,13 @@ describe CapybaraSelect2 do
           expect(page).to have_css '.select2-selection__choice', text: 'Buy Milk'
         end
 
+        it 'should select an option from select with previously selected values' do
+          select2 'Buy Milk', css: '#multiple', search: true
+          select2 'See Malaysia', css: '#multiple', search: true
+
+          expect(page).to have_css '.select2-selection__choice', text: 'Buy Milk'
+        end
+
       end
 
       it 'should select with search for an option' do

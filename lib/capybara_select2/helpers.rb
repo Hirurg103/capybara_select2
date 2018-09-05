@@ -2,7 +2,7 @@ module CapybaraSelect2
   module Helpers
     def select2(value, options = {})
       open_select = "" +
-        ".select2-choice, .select2-choices, " +                    # v2 & v3
+        ".select2-choice, .select2-search-field," +                # v2 & v3
         ".select2-selection"                                       # v4
 
       search_input = "" +
