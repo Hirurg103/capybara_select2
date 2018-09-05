@@ -16,8 +16,6 @@ Capybara.save_path = File.expand_path('../../tmp/capybara', __FILE__)
 
 Capybara.ignore_hidden_elements = true
 
-include CapybaraSelect2
-
 RSpec.configure do |config|
   config.around(:each) do |example|
     if driver = example.metadata[:driver]
