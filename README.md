@@ -24,7 +24,7 @@ Or install it yourself as:
 
 In your spec_helper.rb
 
-```
+```ruby
 RSpec.configure do |config|
   config.include CapybaraSelect2
 end
@@ -34,7 +34,7 @@ end
 
 In your env.rb
 
-```
+```ruby
 World CapybaraSelect2
 ```
 
@@ -42,7 +42,7 @@ World CapybaraSelect2
 
 CapybaraSelect2 expects select2 version 4 by default. If you are using version 3 or 2 please specify it in your spec helper
 
-```
+```ruby
 CapybaraSelect2::Config.select2_version = 3
 
 # or
