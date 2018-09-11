@@ -1,5 +1,5 @@
 # CapybaraSelect2 for select2 version 2/3/4
-!!! You need to specify which version of select2 you are using. See [Configuration](https://github.com/Hirurg103/capybara_select2#configuration)
+!!! For select2 versions 2 and 3 you need to specify which version you are using. See [Configuration](https://github.com/Hirurg103/capybara_select2#configuration)
 
 [![Build Status](https://travis-ci.org/Hirurg103/capybara_select2.svg?branch=master)](https://travis-ci.org/Hirurg103/capybara_select2)
 
@@ -21,7 +21,7 @@ Or install it yourself as:
 
     $ gem install capybara-select-2
 
-[Note] In the projects which use RSpec or Cucumber `select2` helper should be loaded automatically
+[Note] In the projects which use RSpec or Cucumber `select2` helper is available out of the box
 
 ### Manual installation with Rspec
 
