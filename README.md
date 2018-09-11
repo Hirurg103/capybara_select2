@@ -1,6 +1,8 @@
 # CapybaraSelect2 for select2 version 2/3/4
 !!! You need to specify which version of select2 you are using. See [Configuration](https://github.com/Hirurg103/capybara_select2#configuration)
 
+[![Build Status](https://travis-ci.org/Hirurg103/capybara_select2.svg?branch=master)](https://travis-ci.org/Hirurg103/capybara_select2)
+
 ## Installation
 
 Add this line to your application's Gemfile:
