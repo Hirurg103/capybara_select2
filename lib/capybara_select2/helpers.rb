@@ -1,7 +1,7 @@
 module CapybaraSelect2
   module Helpers
     def select2(value, options = {})
-      version = Config.version.to_s
+      version = Config.select2_version.to_s
 
       open_select = {
         '2' => ".select2-choice, .select2-search-field",

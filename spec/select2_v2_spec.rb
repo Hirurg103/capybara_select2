@@ -3,7 +3,7 @@ require 'spec_helper'
 describe CapybaraSelect2 do
 
   shared_context 'with select2 version 2' do |options = {}|
-    before { CapybaraSelect2::Config.version = 2 }
+    before { CapybaraSelect2::Config.select2_version = 2 }
 
     before { visit 'select2-v2/index.html' }
 

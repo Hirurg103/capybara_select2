@@ -6,10 +6,10 @@ module CapybaraSelect2
 
   class Config
     class << self
-      attr_accessor :version
+      attr_accessor :select2_version
     end
   end
 
-  Config.version ||= 4
+  Config.select2_version ||= 4
 
 end
