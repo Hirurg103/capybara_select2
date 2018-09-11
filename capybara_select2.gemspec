@@ -33,5 +33,6 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "selenium-webdriver", "~> 2.53"
   spec.add_development_dependency "capybara-screenshot" , "~> 1.0"
   spec.add_development_dependency "capybara-webkit", "~> 1.15"
+  spec.add_development_dependency "puma", "~> 3.12"
   spec.add_development_dependency "pry", "~> 0.11.0"
 end
