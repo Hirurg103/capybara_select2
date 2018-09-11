@@ -18,7 +18,9 @@ Or install it yourself as:
 
     $ gem install capybara-select-2
 
-### Rspec
+[Note] In the projects which use RSpec or Cucumber `select2` helper should be loaded automatically
+
+### Manual installation with Rspec
 
 In your spec_helper.rb
 
@@ -28,12 +30,26 @@ RSpec.configure do |config|
 end
 ```
 
-### Cucumber
+### Manual installation with Cucumber
 
 In your env.rb
 
 ```
 World CapybaraSelect2
+```
+
+## Configuration
+
+CapybaraSelect2 expects select2 version 4 by default. If you are using version 3 or 2 please specify it in your spec helper
+
+```
+CapybaraSelect2::Config.select2_version = 3
+
+# or
+
+CapybaraSelect2.configure do |config|
+  config.select2_version = 3
+end
 ```
 
 ## Usage
