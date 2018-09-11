@@ -39,7 +39,7 @@ module CapybaraSelect2
         find(search_input).set value
       end
 
-      find(option, text: value).click
+      find(:xpath, '//body').find(option, text: value).click
     end
 
   end

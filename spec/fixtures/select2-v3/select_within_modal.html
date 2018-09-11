@@ -1,0 +1,44 @@
+<!doctype html>
+<html>
+  <head>
+    <script src="https://rawgit.com/jquery/jquery/1.12.4/dist/jquery.min.js"></script>
+    <script src="https://rawgit.com/select2/select2/3.5.4/select2.min.js"></script>
+    <link href="https://rawgit.com/select2/select2/3.5.4/select2.css" rel="stylesheet"/>
+
+    <script src="https://rawgit.com/twbs/bootstrap/v4-dev/dist/js/bootstrap.min.js"></script>
+    <link href="https://rawgit.com/twbs/bootstrap/v4-dev/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  </head>
+
+  <body>
+
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#select2Modal">
+      Open todo
+    </button>
+
+    <div class="modal fade" id="select2Modal" role="dialog"">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-body">
+
+            <h2>Select within modal</h2>
+            <div id="multiple">
+              <label for="todo">Things to do</label>
+              <select id="todo" name="todo" multiple="multiple">
+                <option></option>
+                <option value="buy milk">Buy Milk</option>
+                <option value="see malaysia">See Malaysia</option>
+                <option value="go to gym">Go to gym</option>
+              </select>
+
+              <script>
+                $("#todo").select2({ width: 'resolve' })
+              </script>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </body>
+</html>
