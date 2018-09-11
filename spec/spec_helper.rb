@@ -9,9 +9,16 @@ Capybara.app = Rack::File.new File.expand_path('../fixtures', __FILE__)
 
 require 'selenium-webdriver'
 require 'capybara-webkit'
-Capybara.default_driver = :selenium
 
-require 'capybara-screenshot/rspec'
+Capybara.register_driver :firefox_headless do |app|
+  options = ::Selenium::WebDriver::Firefox::Options.new
+  options.args << '--headless'
+
+  Capybara::Selenium::Driver.new(app, browser: :firefox, options: options)
+end
+
+Capybara.javascript_driver = :firefox_headless
+
 Capybara.save_path = File.expand_path('../../tmp/capybara', __FILE__)
 
 Capybara.ignore_hidden_elements = true
@@ -32,3 +39,6 @@ Capybara::Webkit.configure do |config|
   config.allow_url("rawgit.com")
   config.allow_url("raw.githubusercontent.com")
 end
+
+require 'capybara-screenshot/rspec'
+Capybara::Screenshot.autosave_on_failure = true

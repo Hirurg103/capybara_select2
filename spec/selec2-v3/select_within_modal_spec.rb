@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe "Select2 withing modal" do
+describe "Select2 withing modal", driver: :firefox_headless do
   before { CapybaraSelect2::Config.select2_version = 3 }
 
   it 'should select an option within a modal dialog' do
