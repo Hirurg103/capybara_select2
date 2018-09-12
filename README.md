@@ -70,6 +70,11 @@ select2 'Buy Milk', from: 'Things to do', search: true
 select2 'Millennials', from: 'Generations', tag: true
 ```
 
+### Select several options at once
+```ruby
+select2 'Buy Milk', 'Go to gym', css: '#todo'
+```
+
 ## Contributing
 
 1. Add a test case which covers the bug
