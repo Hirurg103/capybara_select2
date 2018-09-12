@@ -20,4 +20,4 @@ before_install:
   - mkdir geckodriver
   - tar -xzf geckodriver-v$GECKODRIVER_VERSION-linux64.tar.gz -C geckodriver
   - export PATH=$PATH:$PWD/geckodriver
-script: xvfb-run budle exec rspec
+script: xvfb-run bundle exec rspec
