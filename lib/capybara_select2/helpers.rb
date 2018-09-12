@@ -7,6 +7,8 @@ module CapybaraSelect2
       options = args.pop
       values = args
 
+      Utils.validate_options!(options)
+
       container = if options[:xpath]
         find(:xpath, options[:xpath])
       elsif options[:css]

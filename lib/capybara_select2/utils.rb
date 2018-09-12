@@ -11,5 +11,11 @@ module CapybaraSelect2
       end
     end
 
+    def self.validate_options!(options)
+      unless options.is_a?(Hash) && [:css, :xpath, :from].any? { |k| options.key?(k) }
+        fail ArgumentError.new("Please specify :css, :xpath or :from in options")
+      end
+    end
+
   end
 end
