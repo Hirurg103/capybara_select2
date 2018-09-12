@@ -1,7 +1,7 @@
 module CapybaraSelect2
   module Utils
 
-    def self.detect_version(container)
+    def self.detect_select2_version(container)
       if container['class'] =~ /^select2\s/
         '4'
       elsif container['id'] =~ /^s2id_/
