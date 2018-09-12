@@ -34,19 +34,19 @@ module CapybaraSelect2
         '2' => ".select2-choice, .select2-search-field",
         '3' => ".select2-choice, .select2-search-field",
         '4' => ".select2-selection"
-      }[version]
+      }.fetch(version)
 
       search_input = {
         '2' => ".select2-dropdown-open input.select2-focused",
         '3' => ".select2-dropdown-open input.select2-input",
         '4' => ".select2-container--open input.select2-search__field"
-      }[version]
+      }.fetch(version)
 
       option = {
         '2' => ".select2-container-active .select2-result",
         '3' => ".select2-drop-active .select2-result",
         '4' => ".select2-results .select2-results__option"
-      }[version]
+      }.fetch(version)
 
       container.find(open_select).click
 
