@@ -1,5 +1,5 @@
 # CapybaraSelect2 for select2 version 2/3/4
-!!! CapybaraSelect2 detects version select2 automatically
+!!! CapybaraSelect2 detects select2 version automatically
 
 [![Build Status](https://travis-ci.org/Hirurg103/capybara_select2.svg?branch=master)](https://travis-ci.org/Hirurg103/capybara_select2)
 
