@@ -1,17 +1,9 @@
+require 'capybara_select2/utils'
+
 module CapybaraSelect2
   module Helpers
+
     def select2(value, options = {})
-
-      detect_version = -> (container) do
-        if container['class'] =~ /^select2\s/
-          '4'
-        elsif container['id'] =~ /^s2id_/
-          '3'
-        else
-          '2'
-        end
-      end
-
       container = if options[:xpath]
         find(:xpath, options[:xpath])
       elsif options[:css]
@@ -28,7 +20,7 @@ module CapybaraSelect2
         container.find('.select2-container')
       end
 
-      version = detect_version.(container)
+      version = Utils.detect_version(container)
 
       open_select = {
         '2' => ".select2-choice, .select2-search-field",
