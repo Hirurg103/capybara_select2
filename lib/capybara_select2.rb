@@ -7,6 +7,8 @@ module CapybaraSelect2
 end
 
 if defined?(RSpec)
+  require 'rspec/core'
+
   RSpec.configure do |config|
     config.include CapybaraSelect2
   end
