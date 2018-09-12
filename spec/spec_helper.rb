@@ -10,14 +10,18 @@ Capybara.app = Rack::File.new File.expand_path('../fixtures', __FILE__)
 require 'selenium-webdriver'
 require 'capybara-webkit'
 
-Capybara.register_driver :firefox_headless do |app|
+def travis?
+  ENV['travis']
+end
+
+Capybara.register_driver :firefox do |app|
   options = ::Selenium::WebDriver::Firefox::Options.new
-  options.args << '--headless'
+  options.args << '--headless' if travis?
 
   Capybara::Selenium::Driver.new(app, browser: :firefox, options: options)
 end
 
-Capybara.javascript_driver = :firefox_headless
+Capybara.javascript_driver = :firefox
 
 Capybara.save_path = File.expand_path('../../tmp/capybara', __FILE__)
 

@@ -65,7 +65,7 @@ describe CapybaraSelect2 do
     end
   end
 
-  include_context 'with select2 version 2', driver: :firefox_headless
+  include_context 'with select2 version 2', driver: :firefox
   include_context 'with select2 version 2', driver: :webkit
 
 end
