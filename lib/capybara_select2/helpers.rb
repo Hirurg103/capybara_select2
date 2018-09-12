@@ -3,7 +3,10 @@ require 'capybara_select2/utils'
 module CapybaraSelect2
   module Helpers
 
-    def select2(value, options = {})
+    def select2(*args)
+      options = args.pop
+      values = args
+
       container = if options[:xpath]
         find(:xpath, options[:xpath])
       elsif options[:css]
@@ -40,13 +43,15 @@ module CapybaraSelect2
         '4' => ".select2-results .select2-results__option"
       }.fetch(version)
 
-      container.find(open_select).click
+      values.each do |value|
+        container.find(open_select).click
 
-      if options[:search] || options[:tag]
-        find(search_input).set value
+        if options[:search] || options[:tag]
+          find(search_input).set value
+        end
+
+        find(:xpath, '//body').find(option, text: value).click
       end
-
-      find(:xpath, '//body').find(option, text: value).click
     end
 
   end
