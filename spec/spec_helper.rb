@@ -10,6 +10,7 @@ Capybara.app = Rack::File.new File.expand_path('../fixtures', __FILE__)
 require 'selenium-webdriver'
 require 'capybara-webkit'
 
+require 'selenium/webdriver/firefox/options'
 Capybara.register_driver :firefox_headless do |app|
   options = ::Selenium::WebDriver::Firefox::Options.new
   options.args << '--headless'
