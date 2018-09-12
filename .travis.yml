@@ -1,3 +1,5 @@
+sudo: required
+dist: trusty
 language: ruby
 rvm:
   - 2.4.2
@@ -6,9 +8,12 @@ env:
   - MOZ_HEADLESS=1
 addons:
   firefox: latest
-  packages:
-    - libqt5webkit5-dev
-    - qtdeclarative5-dev
+  apt:
+    sources:
+      - ubuntu-sdk-team
+    packages:
+      - libqt5webkit5-dev
+      - qtdeclarative5-dev
 before_install:
   - export GECKODRIVER_VERSION=0.21.0
   - wget https://github.com/mozilla/geckodriver/releases/download/v$GECKODRIVER_VERSION/geckodriver-v$GECKODRIVER_VERSION-linux64.tar.gz
