@@ -1,5 +1,5 @@
 # CapybaraSelect2 for select2 version 2/3/4
-!!! For select2 versions 2 and 3 you need to specify which version you are using. See [Configuration](https://github.com/Hirurg103/capybara_select2#configuration)
+!!! CapybaraSelect2 detects version select2 automatically
 
 [![Build Status](https://travis-ci.org/Hirurg103/capybara_select2.svg?branch=master)](https://travis-ci.org/Hirurg103/capybara_select2)
 
@@ -39,20 +39,6 @@ In your env.rb
 
 ```ruby
 World CapybaraSelect2
-```
-
-## Configuration
-
-CapybaraSelect2 expects select2 version 4 by default. If you are using version 3 or 2 please specify it in your spec helper
-
-```ruby
-CapybaraSelect2::Config.select2_version = 3
-
-# or
-
-CapybaraSelect2.configure do |config|
-  config.select2_version = 3
-end
 ```
 
 ## Usage
