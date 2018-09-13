@@ -5,8 +5,8 @@ rvm:
   - 2.4.2
 before_install: gem install bundler -v 1.16.4
 env:
-  - MOZ_HEADLESS=1
   global:
+    - MOZ_HEADLESS=1
     - CC_TEST_REPORTER_ID=e82aca58fe4e7eae020799b830f8df7dd35ec67f7476078d4fe97ae884be8f84
 addons:
   firefox: latest
