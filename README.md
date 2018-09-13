@@ -3,6 +3,7 @@
 
 [![Build Status](https://travis-ci.org/Hirurg103/capybara_select2.svg?branch=master)](https://travis-ci.org/Hirurg103/capybara_select2)
 [![Maintainability](https://api.codeclimate.com/v1/badges/28e692c7efa07aadbe98/maintainability)](https://codeclimate.com/github/Hirurg103/capybara_select2/maintainability)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/28e692c7efa07aadbe98/test_coverage)](https://codeclimate.com/github/Hirurg103/capybara_select2/test_coverage)
 
 ## Installation
 
