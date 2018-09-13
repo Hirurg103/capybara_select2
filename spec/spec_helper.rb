@@ -46,3 +46,8 @@ end
 
 require 'capybara-screenshot/rspec'
 Capybara::Screenshot.autosave_on_failure = true
+
+if ENV['COVERAGE'] == '1'
+  require 'simplecov'
+  SimpleCov.start
+end
