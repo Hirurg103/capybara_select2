@@ -8,6 +8,7 @@ env:
   global:
     - MOZ_HEADLESS=1
     - CC_TEST_REPORTER_ID=e82aca58fe4e7eae020799b830f8df7dd35ec67f7476078d4fe97ae884be8f84
+    - GECKODRIVER_VERSION=0.21.0
 addons:
   firefox: latest
   apt:
@@ -17,7 +18,6 @@ addons:
       - libqt5webkit5-dev
       - qtdeclarative5-dev
 before_install:
-  - export GECKODRIVER_VERSION=0.21.0
   - wget https://github.com/mozilla/geckodriver/releases/download/v$GECKODRIVER_VERSION/geckodriver-v$GECKODRIVER_VERSION-linux64.tar.gz
   - mkdir geckodriver
   - tar -xzf geckodriver-v$GECKODRIVER_VERSION-linux64.tar.gz -C geckodriver
