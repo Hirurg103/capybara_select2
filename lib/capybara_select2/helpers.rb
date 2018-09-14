@@ -35,7 +35,8 @@ module CapybaraSelect2
 
       search_input = {
         '2' => ".select2-dropdown-open input.select2-focused",
-        '3' => ".select2-dropdown-open input.select2-input",
+        '3' =>  ".select2-drop-active input.select2-input," +         # single
+          ".select2-dropdown-open input.select2-input",               # multi
         '4' => ".select2-container--open input.select2-search__field"
       }.fetch(select2_version)
 
