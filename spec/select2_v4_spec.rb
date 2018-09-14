@@ -68,6 +68,14 @@ describe CapybaraSelect2 do
         end
       end
 
+      context 'selecting a value from a grouped select box' do
+
+        it 'should select an option from select' do
+          select2 'Big Boom Wooh', css: '#grouped .select2-container'
+          expect(page).to have_css '.select2-container span', text: 'Big Boom Wooh'
+        end
+      end
+
       # tagging
 
       context 'creating a dynamic option' do

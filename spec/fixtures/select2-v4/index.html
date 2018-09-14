@@ -46,6 +46,30 @@
     <br/>
     <hr/>
 
+    <h2>Grouped select box</h2>
+
+    <div id="grouped">
+      <label for="movie">Favourite movie</label>
+      <select id="movie" name="movie">
+        <option></option>
+        <optgroup label="Action">
+          <option value="Race Till You Drop">Race Till You Drop</option>
+          <option value="Big Boom Wooh">Big Boom Wooh</option>
+        </optgroup>
+        <optgroup label="Comedy">
+          <option value="Everybody Laughs">Everybody Laughs</option>
+          <option value="Hahahahaha">Hahahahaha</option>
+        </optgroup>
+      </select>
+
+      <script>
+        $("#movie").select2({ width: 'resolve' })
+      </script>
+    </div>
+
+    <br/>
+    <hr/>
+
     <h2>Tagging</h2>
     <div id="tagging">
       <select id="tags" multiple="multiple">
