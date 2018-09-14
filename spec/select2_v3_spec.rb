@@ -33,6 +33,15 @@ describe CapybaraSelect2 do
             expect(page).to have_css '.select2-chosen', text: 'Wii'
           end
         end
+
+        context 'when searching for an option within a block' do
+          it 'should select an option from search results' do
+            Capybara.within '#single' do
+              select2 'Wii', css: '.select2-container', search: true
+            end
+            expect(page).to have_css '.select2-container span', text: 'Wii'
+          end
+        end
       end
 
       context 'selecting a value from a multi select box' do

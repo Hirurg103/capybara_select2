@@ -50,7 +50,7 @@ module CapybaraSelect2
         container.find(open_select).click
 
         if options[:search] || options[:tag]
-          find(search_input).set value
+          find(:xpath, '//body').find(search_input).set value
         end
 
         find(:xpath, '//body').find(option, text: value).click
