@@ -33,6 +33,15 @@ describe CapybaraSelect2 do
             expect(page).to have_css '.select2-container span', text: 'Wii'
           end
         end
+
+        context 'when searching for an option within a block' do
+          it 'should select an option from search results' do
+            Capybara.within '#single' do
+              select2 'Wii', css: '.select2-container', search: true
+            end
+            expect(page).to have_css '.select2-container span', text: 'Wii'
+          end
+        end
       end
 
       context 'selecting a value from a multi select box' do
@@ -65,6 +74,14 @@ describe CapybaraSelect2 do
           it 'should select an option from search results' do
             expect(page).to have_css '.select2-selection__choice', text: 'Buy Milk'
           end
+        end
+      end
+
+      context 'selecting a value from a grouped select box' do
+
+        it 'should select an option from select' do
+          select2 'Big Boom Wooh', css: '#grouped .select2-container'
+          expect(page).to have_css '.select2-container span', text: 'Big Boom Wooh'
         end
       end
 
