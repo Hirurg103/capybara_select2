@@ -2,8 +2,6 @@ $LOAD_PATH.unshift File.expand_path('../../lib', __FILE__)
 require 'capybara_select2'
 
 require 'capybara/dsl'
-include Capybara::DSL
-
 require 'pry'
 Capybara.app = Rack::File.new File.expand_path('../fixtures', __FILE__)
 
@@ -37,6 +35,8 @@ RSpec.configure do |config|
 
     Capybara.use_default_driver
   end
+
+  config.include Capybara::DSL
 end
 
 Capybara::Webkit.configure do |config|
