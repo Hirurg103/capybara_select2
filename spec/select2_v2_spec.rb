@@ -21,6 +21,11 @@ describe CapybaraSelect2 do
           expect(page).to have_css '.select2-container span', text: 'XBox'
         end
 
+        it 'should select an option from select found by direct ID of the select box' do
+          select2 'XBox', css: '#console'
+          expect(page).to have_css '.select2-container span', text: 'XBox'
+        end
+
         it 'should select an option from select found by label' do
           select2 'XBox', from: 'Select game console'
           expect(page).to have_css '.select2-container span', text: 'XBox'
@@ -60,6 +65,11 @@ describe CapybaraSelect2 do
 
         it 'should select an option from select found by label' do
           select2 'Buy Milk', from: 'Things to do'
+          expect(page).to have_css '.select2-search-choice', text: 'Buy Milk'
+        end
+
+        it 'should select an option from select found by direct ID of the select box' do
+          select2 'Buy Milk', css: '#todo'
           expect(page).to have_css '.select2-search-choice', text: 'Buy Milk'
         end
 

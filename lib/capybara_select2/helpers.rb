@@ -10,9 +10,9 @@ module CapybaraSelect2
       Utils.validate_options!(options)
 
       container = if options[:xpath]
-        find(:xpath, options[:xpath])
+        find(:xpath, options[:xpath], visible: :all)
       elsif options[:css]
-        find(:css, options[:css])
+        find(:css, options[:css], visible: :all)
       else
         find("label:not(.select2-offscreen)", text: options[:from])
           .find(:xpath, '..')
@@ -22,7 +22,7 @@ module CapybaraSelect2
       container = if container['class'] =~ /select2-container/
         container
       else
-        container.find(:xpath, '..').find('.select2-container')
+        container.find('.select2-container') rescue container.sibling('.select2-container')
       end
 
       select2_version = Utils.detect_select2_version(container)
