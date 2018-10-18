@@ -22,7 +22,7 @@ module CapybaraSelect2
       container = if container['class'] =~ /select2-container/
         container
       else
-        container.find('.select2-container')
+        container.find(:xpath, '..')find('.select2-container')
       end
 
       select2_version = Utils.detect_select2_version(container)
