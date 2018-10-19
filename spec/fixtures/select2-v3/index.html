@@ -16,7 +16,8 @@
       <select id="console" name="console">
         <option></option>
         <option value="xbox">XBox</option>
-        <option value="playstation">PlayStation 3</option>
+        <option value="playstation 3">PlayStation 3</option>
+        <option value="playstation">PlayStation</option>
         <option value="wii">Wii</option>
       </select>
 
@@ -57,5 +58,20 @@
       </script>
     </div>
 
+    <h2>Match strategy</h2>
+
+    <div id="match">
+      <label for="attendees">Attendees</label>
+      <select id="attendees" name="attendees">
+        <option></option>
+        <option value="chuck norris">Chuck Norris</option>
+        <option value="john smith">John Smith</option>
+        <option value="john doe">John Doe</option>
+      </select>
+
+      <script>
+        $("#attendees").select2({ width: 'resolve' })
+      </script>
+    </div>
   </body>
 </html>
