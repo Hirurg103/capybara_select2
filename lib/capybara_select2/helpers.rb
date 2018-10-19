@@ -53,7 +53,7 @@ module CapybaraSelect2
           find(:xpath, '//body').find(search_input).set value
         end
 
-        find_options = {text: value}
+        find_options = { text: value }
         find_options[:match] = options[:match] if options[:match]
         find(:xpath, '//body').find(option, find_options).click
       end
