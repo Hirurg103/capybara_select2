@@ -77,6 +77,11 @@ select2 'Millennials', from: 'Generations', tag: true
 select2 'Buy Milk', 'Go to gym', css: '#todo'
 ```
 
+### Add match strategy in case of ambiguous results
+```ruby
+select2 'Buy Milk', from: 'Things to do', search: true, match: :first
+```
+
 ## Contributing
 
 1. Add a test case which covers the bug

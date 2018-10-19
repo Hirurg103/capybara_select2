@@ -27,12 +27,16 @@ describe CapybaraSelect2 do
         end
 
         context 'when searching for an option' do
-          before { select2 'Wii', css: '#single', search: true }
-
           it 'should select an option from search results' do
+            select2 'Wii', css: '#single', search: true
             expect(
               page
             ).to have_css '.select2-container span', text: 'Wii'
+          end
+
+          it 'should select first matched option from search results' do
+            select2 'PlayStation', css: '#single', search: true, match: :first
+            expect(page).to have_css '.select2-container span', text: 'PlayStation 3'
           end
         end
 
