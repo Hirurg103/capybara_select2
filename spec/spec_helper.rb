@@ -19,7 +19,7 @@ Capybara.register_driver :firefox do |app|
   Capybara::Selenium::Driver.new(app, browser: :firefox, options: options)
 end
 
-Capybara.default_driver = :firefox
+Capybara.default_driver = ENV['JS_DRIVER'] || :firefox
 
 Capybara.save_path = File.expand_path('../../tmp/capybara', __FILE__)
 

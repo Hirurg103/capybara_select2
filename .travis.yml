@@ -9,6 +9,8 @@ env:
     - MOZ_HEADLESS=1
     - CC_TEST_REPORTER_ID=e82aca58fe4e7eae020799b830f8df7dd35ec67f7476078d4fe97ae884be8f84
     - GECKODRIVER_VERSION=0.21.0
+  - JS_DRIVER=firefox
+  - JS_DRIVER=webkit
 addons:
   firefox: latest
   apt:
