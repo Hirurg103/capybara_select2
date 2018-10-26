@@ -17,5 +17,23 @@ module CapybaraSelect2
       end
     end
 
+    def self.find_select2_container(options, page)
+      container = if options[:xpath]
+        page.find(:xpath, options[:xpath])
+      elsif options[:css]
+        page.find(:css, options[:css])
+      else
+        page.find("label:not(.select2-offscreen)", text: options[:from])
+          .find(:xpath, '..')
+          .find('.select2-container')
+      end
+
+      if container['class'] =~ /select2-container/
+        container
+      else
+        container.find('.select2-container')
+      end
+    end
+
   end
 end

@@ -9,23 +9,8 @@ module CapybaraSelect2
 
       Utils.validate_options!(options)
 
-      container = if options[:xpath]
-        find(:xpath, options[:xpath])
-      elsif options[:css]
-        find(:css, options[:css])
-      else
-        find("label:not(.select2-offscreen)", text: options[:from])
-          .find(:xpath, '..')
-          .find('.select2-container')
-      end
-
-      container = if container['class'] =~ /select2-container/
-        container
-      else
-        container.find('.select2-container')
-      end
-
-      select2_version = Utils.detect_select2_version(container)
+      select2_container = Utils.find_select2_container(options, page)
+      select2_version = Utils.detect_select2_version(select2_container)
 
       open_select = {
         '2' => ".select2-choice, .select2-search-field",
@@ -47,7 +32,7 @@ module CapybaraSelect2
       }.fetch(select2_version)
 
       values.each do |value|
-        container.find(open_select).click
+        select2_container.find(open_select).click
 
         if options[:search] || options[:tag]
           find(:xpath, '//body').find(search_input).set value
