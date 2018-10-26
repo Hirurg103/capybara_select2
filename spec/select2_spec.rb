@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe CapybaraSelect2, js: true do
+describe CapybaraSelect2 do
 
   it 'should be able to select several options at once' do
     visit '/select2-v3/index.html'
