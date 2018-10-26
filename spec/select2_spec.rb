@@ -1,8 +1,8 @@
 require 'spec_helper'
 
-describe CapybaraSelect2 do
+describe CapybaraSelect2, js: true do
 
-  it 'should be able to select several options at once', driver: :firefox do
+  it 'should be able to select several options at once' do
     visit '/select2-v3/index.html'
 
     select2 'Buy Milk', 'Go to gym', css: '#multiple'

@@ -19,23 +19,13 @@ Capybara.register_driver :firefox do |app|
   Capybara::Selenium::Driver.new(app, browser: :firefox, options: options)
 end
 
-Capybara.javascript_driver = :firefox
+Capybara.default_driver = :firefox
 
 Capybara.save_path = File.expand_path('../../tmp/capybara', __FILE__)
 
 Capybara.ignore_hidden_elements = true
 
 RSpec.configure do |config|
-  config.around(:each) do |example|
-    if driver = example.metadata[:driver]
-      Capybara.current_driver = driver
-    end
-
-    example.run
-
-    Capybara.use_default_driver
-  end
-
   config.include Capybara::DSL
 end
 
