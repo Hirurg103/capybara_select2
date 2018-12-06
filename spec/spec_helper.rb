@@ -5,22 +5,25 @@ require 'capybara/dsl'
 require 'pry'
 Capybara.app = Rack::File.new File.expand_path('../fixtures', __FILE__)
 
-require 'selenium-webdriver'
-require 'capybara-webkit'
-
 def travis?
   ENV['travis']
 end
 
-Capybara.register_driver :firefox do |app|
-  options = ::Selenium::WebDriver::Firefox::Options.new
-  options.args << '--headless' if travis?
+require 'selenium-webdriver'
+
+Capybara.register_driver :chrome_headless do |app|
+  options = ::Selenium::WebDriver::Chrome::Options.new
+
+  options.add_argument('--headless')
+  options.add_argument('--no-sandbox')
+  options.add_argument('--disable-dev-shm-usage')
+  options.add_argument('--window-size=1400,1400')
 
   Capybara::Selenium::Driver.new(app, browser: :firefox, options: options)
 end
 
-Capybara.default_driver =
-  ENV['JS_DRIVER'] && ENV['JS_DRIVER'].to_sym || :firefox
+Capybara.javascript_driver = :chrome_headless
+Capybara.default_driver = :chrome_headless
 
 Capybara.save_path = File.expand_path('../../tmp/capybara', __FILE__)
 
@@ -28,11 +31,6 @@ Capybara.ignore_hidden_elements = true
 
 RSpec.configure do |config|
   config.include Capybara::DSL
-end
-
-Capybara::Webkit.configure do |config|
-  config.allow_url("rawgit.com")
-  config.allow_url("raw.githubusercontent.com")
 end
 
 require 'capybara-screenshot/rspec'
