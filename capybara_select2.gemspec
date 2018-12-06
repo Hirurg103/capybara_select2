@@ -30,7 +30,7 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "rake", "~> 10.0"
   spec.add_development_dependency "rspec", "~> 3.0"
   spec.add_development_dependency "capybara", "~> 3.5"
-  spec.add_development_dependency "selenium-webdriver", "~> 3.5"
+  spec.add_development_dependency "selenium-webdriver", "~> 3.141.0"
   spec.add_development_dependency "capybara-screenshot" , "~> 1.0"
   spec.add_development_dependency "capybara-webkit", "~> 1.15"
   spec.add_development_dependency "puma", "~> 3.12"

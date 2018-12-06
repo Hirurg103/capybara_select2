@@ -1,0 +1,19 @@
+image: ruby:2.4.3
+
+variables:
+  MIN_CHROMEDRIVER_VER: '2.44'
+  MIN_CHROME_VER: '70'
+  TMPDIR: '/tmp'
+
+before_script:
+- echo $HOME
+- chmod +x ./ci/install-chromedriver && ./ci/install-chromedriver
+- chmod +x ./ci/install-chrome && ./ci/install-chrome
+- echo $PATH
+- echo `which chromedriver`
+- gem install bundler --no-ri --no-rdoc
+- bundle install
+
+test:
+  script:
+    - rspec spec

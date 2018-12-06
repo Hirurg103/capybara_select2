@@ -1,0 +1,23 @@
+#!/bin/bash
+
+set -xe
+
+# Update packages
+apt-get update -yqqq
+
+# Install Chrome browser
+apt-get install -y unzip
+
+# Install/use specific version of chrome if an installed version is lower
+install_chromedriver() {
+  wget -O $TMPDIR/chromedriver.zip https://chromedriver.storage.googleapis.com/${MIN_CHROMEDRIVER_VER}/chromedriver_linux64.zip
+  mkdir -p $HOME/.chromedriver
+  (cd $HOME/.chromedriver && unzip $TMPDIR/chromedriver.zip && chmod +x chromedriver)
+  rm -f $TMPDIR/chromedriver.zip
+  ln -s $HOME/.chromedriver/chromedriver /usr/local/bin/chromedriver
+}
+if ! which chromedriver; then
+  install_chromedriver
+elif dpkg --compare-versions `chromedriver --version | cut -d " " -f2` lt $MIN_CHROMEDRIVER_VER; then
+  install_chromedriver
+fi
