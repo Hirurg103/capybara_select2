@@ -6,25 +6,9 @@ rvm:
 before_install: gem install bundler -v 1.16.4
 env:
   global:
-    - MOZ_HEADLESS=1
     - CC_TEST_REPORTER_ID=e82aca58fe4e7eae020799b830f8df7dd35ec67f7476078d4fe97ae884be8f84
-    - GECKODRIVER_VERSION=0.21.0
-  matrix:
-    - JS_DRIVER=firefox
-    - JS_DRIVER=webkit
 addons:
-  firefox: latest
-  apt:
-    sources:
-      - ubuntu-sdk-team
-    packages:
-      - libqt5webkit5-dev
-      - qtdeclarative5-dev
-before_install:
-  - wget https://github.com/mozilla/geckodriver/releases/download/v$GECKODRIVER_VERSION/geckodriver-v$GECKODRIVER_VERSION-linux64.tar.gz
-  - mkdir geckodriver
-  - tar -xzf geckodriver-v$GECKODRIVER_VERSION-linux64.tar.gz -C geckodriver
-  - export PATH=$PATH:$PWD/geckodriver
+  chrome: stable
 before_script:
   - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
   - chmod +x ./cc-test-reporter
