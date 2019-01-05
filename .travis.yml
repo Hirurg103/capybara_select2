@@ -3,7 +3,7 @@ dist: trusty
 language: ruby
 rvm:
   - 2.4.2
-before_install: gem install bundler -v 1.16.4
+before_install: gem install bundler -v 2.0.1
 env:
   global:
     - CC_TEST_REPORTER_ID=e82aca58fe4e7eae020799b830f8df7dd35ec67f7476078d4fe97ae884be8f84
