@@ -28,7 +28,7 @@ end
 Capybara.javascript_driver = :chrome_headless
 Capybara.default_driver = :chrome_headless
 
-Capybara.save_path = File.expand_path('tmp/capybara', __FILE__)
+Capybara.save_path = File.expand_path('../../tmp/capybara', __FILE__)
 
 Capybara.ignore_hidden_elements = true
 
