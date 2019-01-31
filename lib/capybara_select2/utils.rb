@@ -23,15 +23,15 @@ module CapybaraSelect2
       elsif options[:css]
         page.find(:css, options[:css])
       else
-        page.find("label:not(.select2-offscreen)", text: options[:from])
+        page.find(:css, "label:not(.select2-offscreen)", text: options[:from])
           .find(:xpath, '..')
-          .find('.select2-container')
+          .find(:css, '.select2-container')
       end
 
       if container['class'] =~ /select2-container/
         container
       else
-        container.find('.select2-container')
+        container.find(:css, '.select2-container')
       end
     end
 

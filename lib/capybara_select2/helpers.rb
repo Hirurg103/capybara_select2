@@ -32,15 +32,15 @@ module CapybaraSelect2
       }.fetch(select2_version)
 
       values.each do |value|
-        select2_container.find(open_select).click
+        select2_container.find(:css, open_select).click
 
         if options[:search] || options[:tag]
-          find(:xpath, '//body').find(search_input).set value
+          find(:xpath, '//body').find(:css, search_input).set value
         end
 
         find_options = { text: value }
         find_options[:match] = options[:match] if options[:match]
-        find(:xpath, '//body').find(option, find_options).click
+        find(:xpath, '//body').find(:css, option, find_options).click
       end
     end
 
