@@ -23,7 +23,7 @@ module CapybaraSelect2
       elsif options[:css]
         page.find(:css, options[:css])
       else
-        page.find("label:not(.select2-offscreen)", text: options[:from])
+        page.find(:css, "label:not(.select2-offscreen)", text: options[:from])
           .find(:xpath, '..')
           .find(:css, '.select2-container')
       end
