@@ -7,6 +7,7 @@ end
 
 if defined?(RSpec)
   require 'rspec/core'
+  require 'capybara_select2/rspec/matchers'
 
   RSpec.configure do |config|
     config.include CapybaraSelect2

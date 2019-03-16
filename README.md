@@ -92,6 +92,10 @@ select2 'Buy Milk', 'Go to gym', css: '#todo'
 select2 'Buy Milk', from: 'Things to do', search: true, match: :first
 ```
 
+### Check for select2 option on the page
+```ruby
+expect(page).to have_select2_option('Buy Milk')
+```
 ## Contributing
 
 1. Add a test case which covers the bug
