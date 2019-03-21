@@ -23,7 +23,17 @@ Or install it yourself as:
 
     $ gem install capybara-select-2
 
-[Note] In the projects which use RSpec or Cucumber `select2` helper is available out of the box
+[Note] In the projects which use RSpec or Cucumber, the `select2` helper is available out of the box
+
+### Manual installation with Minitest
+
+In your application_system_test_case.rb
+
+```ruby
+class ApplicationSystemTestCase < ActionDispatch::SystemTestCase
+  include CapybaraSelect2::Helpers
+end
+```
 
 ### Manual installation with Rspec
 
