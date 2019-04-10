@@ -5,15 +5,17 @@ require 'capybara/dsl'
 require 'pry'
 Capybara.app = Rack::File.new File.expand_path('../fixtures', __FILE__)
 
-def travis?
+require 'selenium-webdriver'
+
+def ci?
   ENV['travis']
 end
 
-require 'chromedriver/helper'
-require 'selenium-webdriver'
-
-Selenium::WebDriver::Chrome
-  .driver_path = Gem.bin_path("chromedriver-helper", "chromedriver-helper")
+if ci?
+  require 'chromedriver/helper'
+  Selenium::WebDriver::Chrome
+    .driver_path = Gem.bin_path("chromedriver-helper", "chromedriver-helper")
+end
 
 Capybara.register_driver :chrome_headless do |app|
   options = ::Selenium::WebDriver::Chrome::Options.new
