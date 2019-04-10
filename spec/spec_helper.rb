@@ -8,7 +8,7 @@ Capybara.app = Rack::File.new File.expand_path('../fixtures', __FILE__)
 require 'selenium-webdriver'
 
 def ci?
-  ENV['travis']
+  ENV['TRAVIS_CI']
 end
 
 if ci?
