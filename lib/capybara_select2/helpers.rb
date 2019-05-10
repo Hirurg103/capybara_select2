@@ -1,4 +1,5 @@
 require 'capybara_select2/utils'
+require 'capybara_select2/selectors'
 
 module CapybaraSelect2
   module Helpers
