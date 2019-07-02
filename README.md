@@ -92,6 +92,11 @@ select2 'Buy Milk', 'Go to gym', css: '#todo'
 select2 'Buy Milk', from: 'Things to do', search: true, match: :first
 ```
 
+### Search for exact text in the specified node
+```ruby
+select2 'Buy Milk', from: 'Things to do', exact_text: true
+```
+
 ### Check for select2 option on the page
 ```ruby
 expect(page).to have_select2_option('Buy Milk')
