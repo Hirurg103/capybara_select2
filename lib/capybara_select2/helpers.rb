@@ -26,6 +26,7 @@ module CapybaraSelect2
 
         find_options = { text: value }
         find_options[:match] = options[:match] if options[:match]
+        find_options[:exact_text] = options[:exact_text] if options[:exact_text]
         find(:xpath, '//body').find(:css, option_selector, find_options).click
       end
     end

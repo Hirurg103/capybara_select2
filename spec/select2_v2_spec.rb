@@ -35,6 +35,11 @@ describe CapybaraSelect2 do
           select2 'PlayStation', css: '#single', search: true, match: :first
           expect(page).to have_css '.select2-container span', text: 'PlayStation 3'
         end
+
+        it 'should select option with exact text from search results' do
+          select2 'PlayStation', css: '#single', exact_text: true
+          expect(page).to have_css '.select2-container span', text: 'PlayStation'
+        end
       end
 
       context 'when searching for an option within a block' do
