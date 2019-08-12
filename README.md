@@ -67,6 +67,8 @@ select2 'Buy Milk', css: '#todo'
 select2 'Buy Milk', xpath: '//div[@id="todo"]'
 ```
 
+[Note] CSS and xPath selectors should identify a block which wraps select2 element or a select2 element itself (an html element with the `.select2-container` class)
+
 ### Select from select2 control identified by label
 ```ruby
 select2 'Buy Milk', from: 'Things to do'
