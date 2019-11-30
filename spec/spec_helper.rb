@@ -37,6 +37,7 @@ Capybara.ignore_hidden_elements = true
 
 RSpec.configure do |config|
   config.include Capybara::DSL
+  config.exclude_pattern = "shared/**/*_spec.rb"
 end
 
 require 'capybara-screenshot/rspec'

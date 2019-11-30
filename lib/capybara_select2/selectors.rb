@@ -26,7 +26,7 @@ module CapybaraSelect2
 
     OptionSelectors = {
       '2' => ".select2-container-active .select2-result",
-      '3' => ".select2-drop-active .select2-result",
+      '3' => ".select2-drop-active .select2-result-label",
       '4' => ".select2-results .select2-results__option[role='treeitem']"
     }.freeze
 
