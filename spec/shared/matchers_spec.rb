@@ -9,7 +9,8 @@ end
 describe CapybaraSelect2 do
 
   context "with select2 version #{select2_version}" do
-    before { visit "/select2-v#{select2_version}/index.html" }
+
+    before { visit "/select2/v#{select2_version}/examples" }
 
     context 'with a single select box' do
 

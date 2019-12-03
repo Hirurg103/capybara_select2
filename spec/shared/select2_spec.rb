@@ -11,7 +11,7 @@ describe CapybaraSelect2 do
 
   context "with select2 version #{select2_version}" do
 
-    before { visit "/select2-v#{select2_version}/index.html" }
+    before { visit "/select2/v#{select2_version}/examples" }
 
     it "should select several options at once" do
       select2 'Buy Milk', 'Go to gym', css: '#multiple'

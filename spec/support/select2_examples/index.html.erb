@@ -2,15 +2,29 @@
 <html>
   <head>
     <script src="https://rawgit.com/jquery/jquery/1.12.4/dist/jquery.min.js"></script>
-    <script src="https://rawgit.com/select2/select2/3.5.4/select2.min.js"></script>
-    <link href="https://rawgit.com/select2/select2/3.5.4/select2.css" rel="stylesheet"/>
+    <%-
+    js_path = select2_version > '4.0.0' ?
+    "#{select2_version}/dist/js/select2.min.js" :
+    "#{select2_version}/select2.min.js"
+    %>
+    <script src="https://rawgit.com/select2/select2/<%= js_path %>"></script>
+    <%-
+    css_path = select2_version > '4.0.0' ?
+    "#{select2_version}/dist/css/select2.min.css" :
+    "#{select2_version}/select2.css"
+    %>
+    <link href="https://rawgit.com/select2/select2/<%= css_path %>" rel="stylesheet"/>
   </head>
 
   <body>
+
+    <h2>Select2 version: <%= select2_version %> </h2>
+
     <br/>
     <hr/>
 
     <h2>Single select box</h2>
+
     <div id="single">
       <label for="console">Select game console you would want to play</label>
       <select id="console" name="console">
@@ -75,10 +89,14 @@
     <h2>Tagging</h2>
 
     <div id="tagging">
-      <div id="tags"></div>
+      <% if select2_version > '4.0.0' %>
+        <select id="tags" multiple="multiple"></select>
+      <% else  %>
+        <div id="tags"></div>
+      <% end %>
 
       <script>
-        $("#tags").select2({ tags: [] })
+       $("#tags").select2({ tags: ['Generation Y'], width: 'resolve' })
       </script>
     </div>
 

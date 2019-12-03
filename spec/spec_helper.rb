@@ -3,7 +3,11 @@ require 'capybara_select2'
 
 require 'capybara/dsl'
 require 'pry'
-Capybara.app = Rack::File.new File.expand_path('../fixtures', __FILE__)
+
+Dir[File.join(__dir__, "support/**/*.rb")].sort.each { |f| require f }
+
+server = Select2Examples::App.boot
+Capybara.app_host = "http://#{server.host}:#{server.port}"
 
 require 'selenium-webdriver'
 
