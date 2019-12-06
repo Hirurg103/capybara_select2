@@ -51,3 +51,10 @@ if ENV['COVERAGE'] == '1'
   require 'simplecov'
   SimpleCov.start
 end
+
+SupportedVersions = [
+  '2.1.0',
+  '3.5.4',
+  '4.0.5',
+  '4.0.12'
+].freeze
