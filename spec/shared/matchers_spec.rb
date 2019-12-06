@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-select2_version ||= ENV['VERSION'] || 2
+select2_version ||= ENV['VERSION'] || '2.0.1'
 
 def open_select2(selector)
   page.execute_script "$('#{selector}').select2('open')"
