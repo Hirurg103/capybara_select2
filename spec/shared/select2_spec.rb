@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-select2_version ||= ENV['VERSION'] || '2.0.1'
+select2_version ||= ENV['VERSION'] || SupportedVersions.first
 
 def get_values(selector)
   page.evaluate_script "$('#{selector}').select2('val')"
