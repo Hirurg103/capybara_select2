@@ -45,6 +45,13 @@ describe CapybaraSelect2 do
         expect(get_value('#console')).to eql 'xbox'
       end
 
+      it 'should allow to re-select an already selected option' do
+        select2 'XBox', css: '#single'
+        select2 'XBox', css: '#single'
+
+        expect(get_values('#console')).to eql 'xbox'
+      end
+
       context 'searching for an option' do
 
         it 'should select an option from the search results' do

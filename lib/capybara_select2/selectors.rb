@@ -27,7 +27,7 @@ module CapybaraSelect2
     OptionSelectors = {
       '2' => ".select2-container-active .select2-result",
       '3' => ".select2-drop-active .select2-result-label",
-      '4' => ".select2-results .select2-results__option[aria-selected='false']"
+      '4' => ".select2-results .select2-results__option:not([role='group'])"
     }.freeze
 
     def option_selector(select2_version)
