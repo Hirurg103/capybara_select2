@@ -19,90 +19,95 @@ And then execute:
 
     $ bundle
 
-Or install it yourself as:
+Or install it with `gem install` command:
 
     $ gem install capybara-select-2
 
-[Note] In the projects which use RSpec or Cucumber, the `select2` helper is available out of the box
+## Configuration
 
-### Manual installation with Minitest
-
-In your application_system_test_case.rb
+### Minitest
 
 ```ruby
+# application_system_test_case.rb
 class ApplicationSystemTestCase < ActionDispatch::SystemTestCase
   include CapybaraSelect2::Helpers
 end
 ```
 
-### Manual installation with Rspec
-
-In your spec_helper.rb
+### Rspec
 
 ```ruby
+# spec_helper.rb
 RSpec.configure do |config|
   config.include CapybaraSelect2
 end
 ```
+[Note] In RSpec tests `select2` helper is available out of the box
 
-### Manual installation with Cucumber
-
-In your env.rb
+### Cucumber
 
 ```ruby
+# env.rb
 World CapybaraSelect2
 ```
 
 ## Usage
 
-### Select from a node containing select2 control
+### Examples
 
-* Identified by CSS selector
 ```ruby
 select2 'Buy Milk', css: '#todo'
-```
-
-* Identified by XPath selector
-```ruby
 select2 'Buy Milk', xpath: '//div[@id="todo"]'
-```
-
-[Note] CSS and xPath selectors should identify a block which wraps select2 element or a select2 element itself (an html element with the `.select2-container` class)
-
-### Select from select2 control identified by label
-```ruby
 select2 'Buy Milk', from: 'Things to do'
-```
-
-If you want to search for an option (via Ajax for example)
-```ruby
-select2 'Buy Milk', from: 'Things to do', search: true
-```
-
-### Dynamically create an option from search input 
-```ruby
-select2 'Millennials', from: 'Generations', tag: true
-```
-
-### Select several options at once
-```ruby
 select2 'Buy Milk', 'Go to gym', css: '#todo'
+
+select2 'Buy Milk', from: 'Things to do', search: true
+select2 'Millennials', from: 'Generation', tag: true
 ```
 
-### Add match strategy in case of ambiguous results
+[Note] CSS and XPath selectors must identify an HTML node that wraps select2 element or a select2 element itself (an HTML element with the `.select2-container` class)
+
+### Options
+
+Option | Purpose
+:------|:-------
+css | Identify select2 element by a CSS selector
+xpath | Identify select2 element by an XPath selector
+from | Identify select2 element by a label
+search | Search for an option
+tag | Create an option
+match | Specifies Capybara's [matching strategy](https://github.com/teamcapybara/capybara#strategy) when selecting an option
+exact_text | Whether an option text must match exactly
+
+### RSpec matchers
+
 ```ruby
-select2 'Buy Milk', from: 'Things to do', search: true, match: :first
+# Check that a select2 option with specified text is present on the page
+expect(page).to have_select2_option 'Buy Milk'
 ```
 
-### Search for exact text in the specified node
-```ruby
-select2 'Buy Milk', from: 'Things to do', exact_text: true
+## Testing
+
+### See test examples
+
+To see test examples for a specific select2 version, start Sinatra app first:
+
+```bash
+$ rackup spec/support/select2_examples/config.ru
 ```
 
-### Check for select2 option on the page
-```ruby
-expect(page).to have_select2_option('Buy Milk')
+Visit http://localhost:9292/select2/v4.0.5/examples in your browser to see examples for select2 version `4.0.5`
+
+### Running tests
+
+```bash
+# run spec cases for all select2 versions
+$ bundle exec rspec
+
+# run spec cases for a specific select2 version
+$ VERSION=4.0.5 bundle exec rspec spec/shared
 ```
+
 ## Contributing
 
 1. Add a test case which covers the bug
