@@ -16,7 +16,7 @@ end
 require 'selenium-webdriver'
 require 'webdrivers/chromedriver' if ci?
 
-Capybara.register_driver :chrome_headless do |app|
+Capybara.register_driver :selenium_chrome_headless do |app|
   options = ::Selenium::WebDriver::Chrome::Options.new
 
   options.add_argument('--headless')
@@ -27,10 +27,8 @@ Capybara.register_driver :chrome_headless do |app|
   Capybara::Selenium::Driver.new(app, browser: :chrome, options: options)
 end
 
-Capybara.javascript_driver = :chrome_headless
-Capybara.default_driver = :chrome_headless
-
-Capybara.save_path = File.expand_path('../../tmp/capybara', __FILE__)
+Capybara.javascript_driver = :selenium_chrome_headless
+Capybara.default_driver = :selenium_chrome_headless
 
 Capybara.ignore_hidden_elements = true
 
@@ -40,7 +38,11 @@ RSpec.configure do |config|
 end
 
 require 'capybara-screenshot/rspec'
-Capybara::Screenshot.autosave_on_failure = true
+Capybara.save_path = 'tmp/capybara'
+Capybara::Screenshot.instance_variable_set(
+  :@capybara_root,
+  File.expand_path(File.join(__dir__, '..', Capybara.save_path))
+)
 
 if ENV['COVERAGE'] == '1'
   require 'simplecov'

@@ -7,7 +7,7 @@ def get_values(selector)
 end
 alias :get_value :get_values
 
-describe CapybaraSelect2 do
+describe CapybaraSelect2, type: :feature do
 
   context "with select2 version #{select2_version}" do
 
