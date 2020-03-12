@@ -130,7 +130,7 @@ Visit http://localhost:9292/select2/v4.0.5/examples in your browser to see examp
 $ bundle exec rspec
 
 # run spec cases for a specific select2 version
-$ VERSION=4.0.5 bundle exec rspec spec/shared
+$ SELECT2_VERSION=4.0.5 bundle exec rspec spec/shared
 ```
 
 ## Contributing

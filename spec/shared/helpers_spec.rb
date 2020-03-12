@@ -1,7 +1,7 @@
 require 'spec_helper'
 require 'capybara_select2/helpers'
 
-select2_version ||= ENV['VERSION'] || SupportedVersions.first
+select2_version ||= ENV['SELECT2_VERSION'] || SupportedVersions.first
 
 def get_values(selector)
   page.evaluate_script "$('#{selector}').select2('val')"
