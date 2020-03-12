@@ -65,6 +65,7 @@ select2 'Buy Milk', from: 'Things to do'
 select2 'Buy Milk', 'Go to gym', css: '#todo'
 
 select2 'Buy Milk', from: 'Things to do', search: true
+select2 'Buy Milk', from: 'Things to do', search: 'Buy'
 select2 'Millennials', from: 'Generation', tag: true
 ```
 
@@ -77,7 +78,7 @@ Option | Purpose
 css | Identify select2 element by a CSS selector
 xpath | Identify select2 element by an XPath selector
 from | Identify select2 element by a label
-search | Search for an option
+search | Search for an option by the passed string. Search by an option text if `true` passed
 tag | Create an option
 match | Specifies Capybara's [matching strategy](https://github.com/teamcapybara/capybara#strategy) when selecting an option
 exact_text | Whether an option text must match exactly

@@ -54,9 +54,18 @@ describe CapybaraSelect2, type: :feature do
 
       context 'searching for an option' do
 
-        it 'should select an option from the search results' do
-          select2 'Wii', css: '#single', search: true
-          expect(get_value('#console')).to eql 'wii'
+        it 'should search by an option text if used with "{ search: true }"' do
+          expect(CapybaraSelect2::Helpers)
+            .to receive(:select2_search).with('XBox', any_args)
+
+          select2 'XBox', css: '#single', search: true
+        end
+
+        it 'should search by the passed string if used with "{ search: "a string" }"' do
+          expect(CapybaraSelect2::Helpers)
+            .to receive(:select2_search).with('Box', any_args)
+
+          select2 'XBox', css: '#single', search: 'Box'
         end
 
         it 'should select the first matched option from the search results' do
@@ -114,9 +123,18 @@ describe CapybaraSelect2, type: :feature do
 
       context 'searching for an option' do
 
-        it 'should select an option from the search results' do
+        it 'should search by an option text if used with "{ search: true }"' do
+          expect(CapybaraSelect2::Helpers)
+            .to receive(:select2_search).with('Buy Milk', any_args)
+
           select2 'Buy Milk', css: '#multiple', search: true
-          expect(get_values('#todo')).to eql ['buy milk']
+        end
+
+        it 'should search by the passed string if used with "{ search: "a string" }"' do
+          expect(CapybaraSelect2::Helpers)
+            .to receive(:select2_search).with('Buy', any_args)
+
+          select2 'Buy Milk', css: '#multiple', search: 'Buy'
         end
 
       end

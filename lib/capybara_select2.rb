@@ -18,7 +18,8 @@ module CapybaraSelect2
       Helpers.select2_open(extended_options)
 
       if options[:search] || options[:tag]
-        Helpers.select2_search(value, extended_options)
+        term = options[:search].is_a?(String) ? options[:search] : value
+        Helpers.select2_search(term, extended_options)
       end
 
       Helpers.select2_select(value, extended_options)
