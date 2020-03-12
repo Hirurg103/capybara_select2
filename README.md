@@ -78,14 +78,14 @@ Option | Purpose
 css | Identify select2 element by a CSS selector
 xpath | Identify select2 element by an XPath selector
 from | Identify select2 element by a label
-search | Search for an option by the passed string. Search by an option text if `true` passed
+search | Search for an option by the passed string. Search by an option text if `true` is passed
 tag | Create an option
 match | Specifies Capybara's [matching strategy](https://github.com/teamcapybara/capybara#strategy) when selecting an option
 exact_text | Whether an option text must match exactly
 
 ### Helpers
 
-Specific select2 helpers that allow more refined access to select2 control
+Specific select2 helpers that allow more refined access to a select2 control
 
 ```ruby
 select2_open label: 'Todo'
@@ -103,7 +103,7 @@ select2_search | Type into a select2 search field
 select2_select | Select an option from an opened select2 control
 select2_clear | Remove selected options (for multi select only)
 
-[!Note] Helpers above are not available in tests by default. To use them include `CapybaraSelect2::Helpers` in your test invironment (see [Configuration section](https://github.com/Hirurg103/capybara_select2#configuration))
+[Note] Helpers above are not available in tests by default. To use them include `CapybaraSelect2::Helpers` in your test invironment (see [Configuration section](https://github.com/Hirurg103/capybara_select2#configuration))
 
 ### RSpec matchers
 
