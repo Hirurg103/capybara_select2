@@ -34,5 +34,15 @@ module CapybaraSelect2
       OptionSelectors.fetch(select2_version)
     end
 
+    RemoveOptionSelectors = {
+      '2' => '.select2-search-choice-close',
+      '3' => '.select2-search-choice-close',
+      '4' => '.select2-selection__choice__remove'
+    }.freeze
+
+    def remove_option_selector(select2_version)
+      RemoveOptionSelectors.fetch(select2_version)
+    end
+
   end
 end

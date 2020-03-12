@@ -3,32 +3,63 @@ require 'capybara_select2/selectors'
 
 module CapybaraSelect2
   module Helpers
+    module_function
 
-    def select2(*args)
-      options = args.pop
-      values = args
-
+    def select2_open(options)
+      options = options.dup
+      options[:from] ||= options[:label]
       Utils.validate_options!(options)
 
-      select2_container = Utils.find_select2_container(options, page)
-      select2_version = Utils.detect_select2_version(select2_container)
+      _page = options[:page] || page
+      container = options[:container] || Utils.find_select2_container(options, _page)
+      version = options[:version] || Utils.detect_select2_version(container)
+      opener_selector = Selectors.opener_selector(version)
 
-      opener_selector = Selectors.opener_selector(select2_version)
-      option_selector = Selectors.option_selector(select2_version)
+      container.find(:css, opener_selector).click
+    end
 
-      values.each do |value|
-        select2_container.find(:css, opener_selector).click
+    def select2_close(options = {})
+      page.find(:css, 'body').click
+    end
 
-        if options[:search] || options[:tag]
-          search_input_selector = Selectors.search_input_selector(select2_version)
-          find(:xpath, '//body').find(:css, search_input_selector).set value
-        end
+    def select2_search(text, options)
+      options = options.dup
+      options[:from] ||= options[:label]
+      Utils.validate_options!(options)
 
-        find_options = { text: value }
-        find_options[:match] = options[:match] if options[:match]
-        find_options[:exact_text] = options[:exact_text] if options[:exact_text]
-        find(:xpath, '//body').find(:css, option_selector, find_options).click
-      end
+      _page = options[:page] || page
+      container = options[:container] || Utils.find_select2_container(options, _page)
+      version = options[:version] || Utils.detect_select2_version(container)
+      search_input_selector = Selectors.search_input_selector(version)
+
+      _page.find(:xpath, '//body').find(:css, search_input_selector).set text
+    end
+
+    def select2_select(value, options)
+      Utils.validate_options!(options)
+
+      _page = options[:page] || page
+      container = options[:container] || Utils.find_select2_container(options, _page)
+      version = options[:version] || Utils.detect_select2_version(container)
+      option_selector = Selectors.option_selector(version)
+
+      find_options = { text: value }
+      find_options[:match] = options[:match] if options[:match]
+      find_options[:exact_text] = options[:exact_text] if options[:exact_text]
+
+      _page.find(:xpath, '//body').find(:css, option_selector, find_options).click
+    end
+
+    def select2_clear(options)
+      options = options.dup
+      options[:from] ||= options[:label]
+      Utils.validate_options!(options)
+
+      container = Utils.find_select2_container(options, page)
+      version = Utils.detect_select2_version(container)
+      remove_option_selector = Selectors.remove_option_selector(version)
+
+      container.all(remove_option_selector).map(&:click)
     end
 
   end

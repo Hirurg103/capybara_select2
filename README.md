@@ -30,7 +30,8 @@ Or install it with `gem install` command:
 ```ruby
 # application_system_test_case.rb
 class ApplicationSystemTestCase < ActionDispatch::SystemTestCase
-  include CapybaraSelect2::Helpers
+  include CapybaraSelect2
+  include CapybaraSelect2::Helpers # if need specific helpers
 end
 ```
 
@@ -40,6 +41,7 @@ end
 # spec_helper.rb
 RSpec.configure do |config|
   config.include CapybaraSelect2
+  config.include CapybaraSelect2::Helpers # if need specific helpers
 end
 ```
 [Note] In RSpec tests `select2` helper is available out of the box
@@ -49,6 +51,7 @@ end
 ```ruby
 # env.rb
 World CapybaraSelect2
+World CapybaraSelect2::Helpers # if need specific helpers
 ```
 
 ## Usage
@@ -78,6 +81,28 @@ search | Search for an option
 tag | Create an option
 match | Specifies Capybara's [matching strategy](https://github.com/teamcapybara/capybara#strategy) when selecting an option
 exact_text | Whether an option text must match exactly
+
+### Helpers
+
+Specific select2 helpers that allow more refined access to select2 control
+
+```ruby
+select2_open label: 'Todo'
+select2_close
+select2_search 'Milk', css: '#todo'
+select2_select 'Buy Milk', from: 'Todo'
+select2_clear xpath: "//div[@id='todo']"
+```
+
+Helper | Purpose
+:------|:-------
+select2_open | Open select2 control
+select2_close | Close select2 control
+select2_search | Type into a select2 search field
+select2_select | Select an option from an opened select2 control
+select2_clear | Remove selected options (for multi select only)
+
+[!Note] Helpers above are not available in tests by default. To use them include `CapybaraSelect2::Helpers` in your test invironment (see [Configuration section](https://github.com/Hirurg103/capybara_select2#configuration))
 
 ### RSpec matchers
 

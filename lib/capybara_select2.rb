@@ -1,8 +1,30 @@
 require "capybara_select2/version"
+require 'capybara_select2/utils'
 require 'capybara_select2/helpers'
 
 module CapybaraSelect2
-  include Helpers
+
+  def select2(*args)
+    options = args.pop
+    values = args
+
+    Utils.validate_options!(options)
+
+    container = Utils.find_select2_container(options, page)
+    version = Utils.detect_select2_version(container)
+    extended_options = options.merge({ container: container, version: version, page: page })
+
+    values.each do |value|
+      Helpers.select2_open(extended_options)
+
+      if options[:search] || options[:tag]
+        Helpers.select2_search(value, extended_options)
+      end
+
+      Helpers.select2_select(value, extended_options)
+    end
+  end
+
 end
 
 if defined?(RSpec)
