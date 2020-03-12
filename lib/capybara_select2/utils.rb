@@ -1,6 +1,10 @@
 module CapybaraSelect2
   module Utils
 
+    def self.set_option_aliases(options)
+      options.dup.tap { |o| o[:from] ||= o[:label] }
+    end
+
     def self.detect_select2_version(container)
       if container['class'] =~ /^select2\s/
         '4'

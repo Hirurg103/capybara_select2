@@ -6,8 +6,7 @@ module CapybaraSelect2
     module_function
 
     def select2_open(options)
-      options = options.dup
-      options[:from] ||= options[:label]
+      options = Utils.set_option_aliases(options)
       Utils.validate_options!(options)
 
       _, container, version = Utils.get_page_container_and_version(options, self)
@@ -21,8 +20,7 @@ module CapybaraSelect2
     end
 
     def select2_search(text, options)
-      options = options.dup
-      options[:from] ||= options[:label]
+      options = Utils.set_option_aliases(options)
       Utils.validate_options!(options)
 
       page, _, version = Utils.get_page_container_and_version(options, self)
@@ -45,8 +43,7 @@ module CapybaraSelect2
     end
 
     def select2_clear(options)
-      options = options.dup
-      options[:from] ||= options[:label]
+      options = Utils.set_option_aliases(options)
       Utils.validate_options!(options)
 
       _, container, version = Utils.get_page_container_and_version(options, self)
