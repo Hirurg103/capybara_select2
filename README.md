@@ -75,14 +75,14 @@ select2 'Millennials', from: 'Generation', tag: true
 
 Option | Purpose
 :------|:-------
-css | Identify select2 element by a CSS selector
-xpath | Identify select2 element by an XPath selector
-from | Identify select2 element by a label
-label | Identify select2 element by a label
-search | Search for an option by the passed string. Search by an option text if `true` is passed
-tag | Create an option
-match | Specifies Capybara's [matching strategy](https://github.com/teamcapybara/capybara#strategy) when selecting an option
-exact_text | Whether an option text must match exactly
+`css` | Identify select2 element by a CSS selector
+`xpath` | Identify select2 element by an XPath selector
+`from` | Identify select2 element by a label
+`label` | Identify select2 element by a label
+`search` | Search for an option by the passed string. Search by an option text if `true` is passed
+`tag` | Create an option
+`match` | Specifies Capybara's [matching strategy](https://github.com/teamcapybara/capybara#strategy) when selecting an option
+`exact_text` | Whether an option text must match exactly
 
 ### Helpers
 
@@ -98,11 +98,11 @@ select2_clear xpath: "//div[@id='todo']"
 
 Helper | Purpose | Options
 :------|:--------|:-------
-select2_open(options) | Open select2 control | label, css, xpath
-select2_close | Close select2 control | -
-select2_search(term, options) | Type into a select2 search field | label, from, css, xpath
-select2_select(value, options) | Select an option from an opened select2 control | label, from, css, xpath, match, exact_text
-select2_clear(options) | Remove selected options (for multi select only) | label, from, css, xpath
+`select2_open(options)` | Open select2 control | `label`, `css`, `xpath`
+`select2_close` | Close select2 control | -
+`select2_search(term, options)` | Type into a select2 search field | `label`, `from`, `css`, `xpath`
+`select2_select(value, options)` | Select an option from an opened select2 control | `label`, `from`, `css`, `xpath`, `match`, `exact_text`
+`select2_clear(options)` | Remove selected options (for multi select only) | `label`, `from`, `css`, `xpath`
 
 See description for each option in the [Options](https://github.com/Hirurg103/capybara_select2#options) section
 
