@@ -10,9 +10,7 @@ module CapybaraSelect2
       options[:from] ||= options[:label]
       Utils.validate_options!(options)
 
-      _page = options[:page] || page
-      container = options[:container] || Utils.find_select2_container(options, _page)
-      version = options[:version] || Utils.detect_select2_version(container)
+      _, container, version = Utils.get_page_container_and_version(options, self)
       opener_selector = Selectors.opener_selector(version)
 
       container.find(:css, opener_selector).click
@@ -27,27 +25,23 @@ module CapybaraSelect2
       options[:from] ||= options[:label]
       Utils.validate_options!(options)
 
-      _page = options[:page] || page
-      container = options[:container] || Utils.find_select2_container(options, _page)
-      version = options[:version] || Utils.detect_select2_version(container)
+      page, _, version = Utils.get_page_container_and_version(options, self)
       search_input_selector = Selectors.search_input_selector(version)
 
-      _page.find(:xpath, '//body').find(:css, search_input_selector).set text
+      page.find(:xpath, '//body').find(:css, search_input_selector).set text
     end
 
     def select2_select(value, options)
       Utils.validate_options!(options)
 
-      _page = options[:page] || page
-      container = options[:container] || Utils.find_select2_container(options, _page)
-      version = options[:version] || Utils.detect_select2_version(container)
+      page, _, version = Utils.get_page_container_and_version(options, self)
       option_selector = Selectors.option_selector(version)
 
       find_options = { text: value }
       find_options[:match] = options[:match] if options[:match]
       find_options[:exact_text] = options[:exact_text] if options[:exact_text]
 
-      _page.find(:xpath, '//body').find(:css, option_selector, find_options).click
+      page.find(:xpath, '//body').find(:css, option_selector, find_options).click
     end
 
     def select2_clear(options)
@@ -55,8 +49,7 @@ module CapybaraSelect2
       options[:from] ||= options[:label]
       Utils.validate_options!(options)
 
-      container = Utils.find_select2_container(options, page)
-      version = Utils.detect_select2_version(container)
+      _, container, version = Utils.get_page_container_and_version(options, self)
       remove_option_selector = Selectors.remove_option_selector(version)
 
       container.all(remove_option_selector).map(&:click)

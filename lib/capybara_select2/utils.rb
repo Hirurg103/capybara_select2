@@ -35,5 +35,13 @@ module CapybaraSelect2
       end
     end
 
+    def self.get_page_container_and_version(options, context)
+      page = options[:page] || context.page
+      container = options[:container] || find_select2_container(options, page)
+      version = options[:version] || detect_select2_version(container)
+
+      [page, container, version]
+    end
+
   end
 end
