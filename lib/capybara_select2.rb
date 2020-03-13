@@ -12,17 +12,18 @@ module CapybaraSelect2
 
     container = Utils.find_select2_container(options, page)
     version = Utils.detect_select2_version(container)
-    extended_options = options.merge({ container: container, version: version, page: page })
+    options_with_select2_details =
+      options.merge({ container: container, version: version, page: page })
 
     values.each do |value|
-      Helpers.select2_open(extended_options)
+      Helpers.select2_open(options_with_select2_details)
 
       if options[:search] || options[:tag]
         term = options[:search].is_a?(String) ? options[:search] : value
-        Helpers.select2_search(term, extended_options)
+        Helpers.select2_search(term, options_with_select2_details)
       end
 
-      Helpers.select2_select(value, extended_options)
+      Helpers.select2_select(value, options_with_select2_details)
     end
   end
 
