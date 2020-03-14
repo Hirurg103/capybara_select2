@@ -62,23 +62,41 @@ World CapybaraSelect2::Helpers # if need specific helpers
 select2 'Buy Milk', from: 'Todo'
 select2 'Buy Milk', css: '#todo'
 select2 'Buy Milk', xpath: '//div[@id="todo"]'
+```
 
-# select two or more options
+#### Select two or more options
+
+```ruby
 select2 'Buy Milk', 'Go to gym', from: 'Todo'
+```
 
-# search by an option text
+#### Search by an option text
+
+```ruby
 select2 'Buy Milk', from: 'Todo', search: true
+```
 
-# search by a term different than an option text
+#### Search by a term different than an option text
+
+```
 select2 'Buy Milk', from: 'Todo', search: 'Buy'
+```
 
-# create a tag
+#### Create a tag
+
+```ruby
 select2 'Go to gym', from: 'Todo', tag: true
+```
 
-# select the first matching option if there are two or more options with text 'Buy'
+#### Select the first matching option if there are two or more options with text 'Buy'
+
+```ruby
 select2 'Buy', from: 'Todo', match: :first
+```
 
-# select an option by exact text 'Eat' if there are other options with text 'Eat' ('Eat salad' for example)
+#### Select an option by exact text 'Eat' if there are other options with text 'Eat' ('Eat salad' for example)
+
+```ruby
 select2 'Eat', from: 'Todo', exact_text: true
 ```
 
