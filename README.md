@@ -64,39 +64,41 @@ select2 'Buy Milk', css: '#todo'
 select2 'Buy Milk', xpath: '//div[@id="todo"]'
 ```
 
-#### Select two or more options
+#### Selecting two or more options
 
 ```ruby
 select2 'Buy Milk', 'Go to gym', from: 'Todo'
 ```
 
-#### Search by an option text
+#### Searching
 
 ```ruby
 select2 'Buy Milk', from: 'Todo', search: true
 ```
 
-#### Search by a term different than an option text
+#### Searching by text different than an option text
 
 ```
 select2 'Buy Milk', from: 'Todo', search: 'Buy'
 ```
 
-#### Create a tag
+#### Tagging
 
 ```ruby
 select2 'Go to gym', from: 'Todo', tag: true
 ```
 
-#### Select the first matching option if there are two or more options with text 'Buy'
+#### Resolving ambiguous match
 
 ```ruby
+# Select the first matching option if there are two or more options with text 'Buy'
 select2 'Buy', from: 'Todo', match: :first
 ```
 
-#### Select an option by exact text 'Eat' if there are other options with text 'Eat' ('Eat salad' for example)
+#### Selecting an option by exact text
 
 ```ruby
+# Select 'Eat' if there are two or more options with text 'Eat' ('Eat', 'Eat salad')
 select2 'Eat', from: 'Todo', exact_text: true
 ```
 
