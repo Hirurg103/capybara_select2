@@ -59,14 +59,27 @@ World CapybaraSelect2::Helpers # if need specific helpers
 ### Examples
 
 ```ruby
+select2 'Buy Milk', from: 'Todo'
 select2 'Buy Milk', css: '#todo'
 select2 'Buy Milk', xpath: '//div[@id="todo"]'
-select2 'Buy Milk', from: 'Things to do'
-select2 'Buy Milk', 'Go to gym', css: '#todo'
 
-select2 'Buy Milk', from: 'Things to do', search: true
-select2 'Buy Milk', from: 'Things to do', search: 'Buy'
-select2 'Millennials', from: 'Generation', tag: true
+# select two or more options
+select2 'Buy Milk', 'Go to gym', from: 'Todo'
+
+# search by an option text
+select2 'Buy Milk', from: 'Todo', search: true
+
+# search by a term different than an option text
+select2 'Buy Milk', from: 'Todo', search: 'Buy'
+
+# create a tag
+select2 'Go to gym', from: 'Todo', tag: true
+
+# select the first matching option if there are two or more options with text 'Buy'
+select2 'Buy', from: 'Todo', match: :first
+
+# select an option by exact text 'Eat' if there are other options containing text 'Eat' ('Eat salad' for example)
+select2 'Playstation', from: 'Game Console', exact_text: true
 ```
 
 [Note] CSS and XPath selectors must identify an HTML node that wraps select2 element or a select2 element itself (an HTML element with the `.select2-container` class)
