@@ -78,8 +78,8 @@ select2 'Go to gym', from: 'Todo', tag: true
 # select the first matching option if there are two or more options with text 'Buy'
 select2 'Buy', from: 'Todo', match: :first
 
-# select an option by exact text 'Eat' if there are other options containing text 'Eat' ('Eat salad' for example)
-select2 'Playstation', from: 'Game Console', exact_text: true
+# select an option by exact text 'Eat' if there are other options with text 'Eat' ('Eat salad' for example)
+select2 'Eat', from: 'Todo', exact_text: true
 ```
 
 [Note] CSS and XPath selectors must identify an HTML node that wraps select2 element or a select2 element itself (an HTML element with the `.select2-container` class)
