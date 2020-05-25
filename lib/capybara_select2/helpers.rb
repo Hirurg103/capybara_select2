@@ -38,7 +38,7 @@ module CapybaraSelect2
       find_options = options.select { |k, _| [:match, :exact_text].include?(k) }
       find_options = find_options.merge(text: value)
 
-      page.find(:xpath, '//body').find(:css, option_selector, find_options).click
+      page.find(:xpath, '//body').find(:css, option_selector, **find_options).click
     end
 
     def select2_clear(options)
