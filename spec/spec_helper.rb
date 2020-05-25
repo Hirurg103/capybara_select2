@@ -9,12 +9,8 @@ Dir[File.join(__dir__, "support/**/*.rb")].sort.each { |f| require f }
 server = Select2Examples::App.boot
 Capybara.app_host = "http://#{server.host}:#{server.port}"
 
-def ci?
-  ENV['CI']
-end
-
 require 'selenium-webdriver'
-require 'webdrivers/chromedriver' if ci?
+require 'webdrivers/chromedriver'
 
 Capybara.register_driver :selenium_chrome_headless do |app|
   options = ::Selenium::WebDriver::Chrome::Options.new
