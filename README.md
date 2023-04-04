@@ -78,7 +78,7 @@ select2 'Buy Milk', from: 'Todo', search: true
 
 #### Searching by text different than an option text
 
-```
+```ruby
 select2 'Buy Milk', from: 'Todo', search: 'Buy'
 ```
 
